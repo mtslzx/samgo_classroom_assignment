@@ -24,7 +24,7 @@ driver.implicitly_wait(1)
 name = input('이름을입력해주세요:')
 fail = '[<td rowspan="2">조회 결과가 없습니다.</td>]'
 end = 0
-print(fail)
+#print(fail)
 list = open('반배정.txt', 'at', encoding='utf-8')
 # 홈페이지에 양식 입력
 for i in range(1):
@@ -45,8 +45,7 @@ for i in range(1):
                     html = driver.page_source
                     soup = BeautifulSoup(html, 'html.parser')
                     result = str(soup.select('#subContent > div > div:nth-child(7) > div.table_st > table > tbody > tr:nth-child(1) > td'))
-
-                    print(result)
+                    #print(result)
                     if result != fail:
                             who = soup.select('#subContent > div > div:nth-child(7) > div.table_st > table > tbody > tr:nth-child(2) > td')
                             print("[성공] 결과값은", result, who, "입니다.")
