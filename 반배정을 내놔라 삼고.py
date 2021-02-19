@@ -28,7 +28,7 @@ name_list = open('이름.txt', 'rt', encoding='utf-8')
 #print(fail)
 list = open('반배정.txt', 'at', encoding='utf-8')
 # 홈페이지에 양식 입력
-for i in range(142):  # 이름의 갯수에 맞추어 주세요.
+for i in range(140):  # 이름의 갯수에 맞추어 주세요.
         name = name_list.read(3)
         print("[시작] 현재 진행중인 이름:", name)
         for month in range(12):
