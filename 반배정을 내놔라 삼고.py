@@ -6,10 +6,10 @@ import os
 from bs4 import BeautifulSoup
 
 '''
-반배정을 내놔라 삼고
+반배정을 내놔라 (BBZ)
 만든이 : mtslzx (mtslzx@gmail.com)
-Ver. 0.1 Dev
-Description : 삼천포고등학교 반배정을 브루트포스로 찾아내주는 프로그램입니다.
+Ver. 0.2 Alpha
+Description : 고등학교 반배정을 브루트포스로 찾아내주는 프로그램입니다.
 '''
 # == 코드 시작 ==
 
@@ -56,11 +56,11 @@ for i in range(142):
                             writing = str(name) + ' : ' + str(who) + "\n"
                             list.write(writing)
                             end = 1
-                            list.close()
                             break
                     else:
                         print("[실패] 틀린 값:", date)
 
+list.close()
 print('[완료] 5초 후 프로그램이 종료됩니다.')
 time.sleep(5)
 os.system("taskkill /f /im chromedriver.exe")
